@@ -1,0 +1,14 @@
+Changelog for DOTContentTypes
+
+    (name of developer listed in brackets)
+
+ATSuccessStory 2.0.5
+    - Complete rebuild from scratch. [frapell]
+
+    - Use of zope3 views. [frapell]
+
+    - Removed the inheritance from ATImage. [frapell]
+
+    - Intern Profile, Partner Profile, Featured Project and Success Stories 
+      Portlets created. [frapell]
+

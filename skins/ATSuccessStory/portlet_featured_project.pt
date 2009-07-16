@@ -1,0 +1,35 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="ATSuccessStory">
+<body>
+<div metal:define-macro="portlet" tal:define="view here/@@successstory_view;
+                                              result python:view.published_success_stories('project-showcase')">
+
+<dl class="portlet" id="portlet-featured-project" tal:condition="result">
+
+    <dt class="portletHeader">
+        <span i18n:translate="box_featured_project">Featured Project</span>
+    </dt>
+
+    <dd class="portletItem">
+        <div tal:define="success_story python:result.getObject()">
+            <a href="#" tal:attributes="href python:result.getPath()">
+            <span tal:replace="structure python:success_story.tag(scale='dot')"/>
+<!--              style="float:left" -->
+            <strong><p tal:content="python:success_story.Title()"/></strong>
+            </a>
+            <p class="portletItemDetails" tal:content="structure python:success_story.Description()"/>
+            <a href="#" tal:attributes="href python:result.getPath()"> 
+            <span i18n:translate="box_read_more">Read more...</span>
+            </a>
+
+        </div>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
+
+</div>
+</body>
+</html>

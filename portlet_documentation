@@ -1,0 +1,61 @@
+***********How to use the portlets***********
+
+The product includes 3 portlets:
+portlet_intern_profile
+portlet_partner_profile
+portlet_featured_project
+
+for them to work you need to go to the ZMI and add them to one slot, for example:
+
+here/portlet_partner_profile/macros/portlet
+here/portlet_intern_profile/macros/portlet
+here/portlet_featured_project/macros/portlet
+
+each portlet gets its content from specific folders located at same level as they are.
+
+Intern Profile Portlet gets its content from a folder named "interns"
+Partner Profile Portlet gets its content from a folder named "partner-stories"
+Featured Project Portlet gets its content from a folder named "project-showcase"
+
+Note: remember that those must be the folder's Ids, so you can create them using those names and then change its title to whatever you want, but making sure the ID's remain the same.
+
+So, for example, if you want, let's say "Intern Profile Portlet" to show content under "site/what-we-do", you have to make sure that the portlet is loaded (that is under the ZMI, has to be loaded to the correct slot). And then you should create a 'Success Story Folder' named "interns". So the URL will be something like "site/what-we-do/interns". And place inside as many success stories as you want.
+
+Then, if you go back to "site/what-we-do", you should see the portlet showing one random success story.
+
+For global portlets there's some special behaviour:
+
+under the ZMI, you can add specially named properties to 'portal_properties/site_properties' where the portlets will search for more succes stories:
+
+Intern Profile Portlet searchs for a property named "global_interns"
+Partner Profile Portlet searchs for a property named "global_partner-stories"
+Featured Project Portlet searchs for a property named "global_project-showcase"
+
+these properties must be of type 'lines' and should contain one location by line. For example:
+
+If you want for Partner Profile Portlet at root site to show success stories located at 'site/work-with-us/interns', 'site/who-we-are/success' and 'site/example' Success Story Folders, then you shoudl go to the ZMI->portal_properties->site_properties, and then go to 'global_partner-stories' (or create it if does not exist) and add:
+
+work-with-us/interns
+who-we-are/success
+example
+
+please be careful and notice how the locations start from the first folder on site, with no starting nor ending '/'
+
+that behaviour applies for the 3 portlets
+
+===============================================================================================
+
+There is an Additional Portlet, a fourth one, called 'Success Stories Portlet'. The behaviour of this portlet is exactly the same as the previous 3. The only three differences are:
+a) To use it you should use:
+    'here/portlet_success_stories/macros/portlet' under the correct slot in the ZMI
+
+b) The folder from which it search for success stories is called:
+    'success-stories'
+
+c) The property, if you want to use it globally at root level should be called:
+    'global_success-stories'
+
+
+VERY IMPORTANT NOTE:
+    all names listed here are case sensitive, so you should use the exact same in your site. To be sure, just copy and paste the names from this document.
+    Please note that quotes should not be included (" nor ') when copying the names. they are used here only to differenciate names.
