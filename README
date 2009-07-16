@@ -1,0 +1,17 @@
+ATSuccessStory v 0.1 build 5
+
+Instructions:
+
+- Place ATSuccessStory folder in your instance's Product folder
+
+- Install it using QuickInstaller
+
+- In portal_properties/site_properties add ATSuccessStory to
+typesUseViewActionInListings property
+
+- This Product includes a Portlet called portlet_success that
+shows a random success story, and to work you have to create
+a folder in your plone site with id=portlet-content and
+inside another one with id=success-stories and place
+inside all the success stories you want to be shown
+

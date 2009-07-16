@@ -1,0 +1,53 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+	    
+<body>
+	    
+<div metal:define-macro="portlet" tal:omit-tag=""
+                                  tal:define="docu python:getattr(getattr(context,'portlet-content',None),'success-stories', None)"
+                                  tal:condition="python: docu and len(docu.objectValues('ATSuccessStory')) > 0"> 
+
+<dl class="portlet"
+    id="portlet-success">
+
+    <dt class="portletHeader">
+        <span i18n:translate="box_success">Success Stories</span>
+    </dt>
+
+    <tal:block tal:define="success_story python: random.choice(docu.objectValues('ATSuccessStory'))">
+
+    <dd class="portletItem" 
+                            i18n:domain="plone-metadata"
+                            i18n:translate=""
+                            >
+      <div>
+        <a href="#" style="float:left" tal:attributes="href python:success_story.absolute_url()+'/view'"> 
+          <img src="#" alt="Image" tal:attributes="src python:success_story.absolute_url()"/>
+        </a> 
+
+        <a href="#" 
+               class="tile"
+               tal:attributes="href python:success_story.absolute_url()+'/view'"
+               tal:content="structure python:success_story.Description()"
+               >Description</a>
+      
+      </div>
+      <div style="text-align:right">
+
+        <br/>
+         <a href="#" 
+               tal:attributes="href python:docu.absolute_url()+'/view'"
+               tal:content="string:Read More Stories"
+               >Description</a>
+
+      </div>
+        
+
+    </dd>
+</tal:block>
+</dl>
+</div>
+</body>
+
+</html>
