@@ -1,0 +1,20 @@
+ATSuccessStory v 0.2.0
+
+Instructions:
+
+- Place ATSuccessStory folder in your instance's Product folder
+
+- Install it using QuickInstaller
+
+- In portal_properties/site_properties add ATSuccessStory to
+typesUseViewActionInListings property
+
+- This Product includes a Portlet called portlet_success that
+shows a random success story from anywhere in the site.
+
+*Note that for a success story to be shown, it has to be published*
+
+
+Author:
+
+- Franco Pellegrini <frapell@gmail.com> <frapell@menttes.com>

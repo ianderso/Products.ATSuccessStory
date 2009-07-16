@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+  <head>
+    <title tal:content="template/title">The title</title>
+  </head>
+  <body>
+    <metal:main fill-slot="main">
+     <tal:block repeat="item here/successResults">
+       <strong>
+       <a href="#" 
+               class="tile"
+               tal:attributes="href python:item.getObject().absolute_url()+'/view'"
+               tal:content="structure python:item.getObject().Title()">
+               id</a>
+       </strong>
+        - <span tal:replace="python:item.getObject().Description()"/>
+               <br/>
+               <br/>
+           </tal:block>    
+
+    </metal:main>
+  </body>
+</html>
+
+
