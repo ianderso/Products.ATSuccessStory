@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+  <browser:page
+      for="*"
+      name="successstory_view"
+      class=".portlets.portlet_success.SuccessStoryPortlet"
+      permission="zope.Public"
+      allowed_interface=".interfaces.ISuccessStoryPortlet"
+      />
+
+</configure>
+
