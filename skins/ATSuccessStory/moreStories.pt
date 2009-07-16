@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+        <!-- header, H1 with title in it -->
+        <metal:header define-macro="header"><!--
+           <h1 tal:content="python: context.getParentNode().Title()"/>-->
+           <div metal:use-macro="here/document_actions/macros/document_actions">
+              Document actions (print, sendto etc)
+           </div>
+
+        </metal:header>
+        
+        <!-- body macro where all the fields are -->
+        <metal:body define-macro="body">
+            <div tal:define="view here/@@successstory_view;
+                            result python:view.list_success(context.REQUEST.get('port_type'), context.REQUEST.get('from_id'))">
+            <tal:block repeat="item result">
+            <strong>
+            <a href="#" 
+                    class="tile"
+                    tal:attributes="href python:item.getPath()"
+                    tal:content="structure python:item.Title">
+                    id</a>
+            </strong>
+                - <span tal:replace="python:item.Description"/>
+                    <br/>
+                    <br/>
+                </tal:block>
+            </div>
+        </metal:body>
+        
+        <!-- folderlisting that shows sub-objects if there are any -->
+        <metal:folderlisting define-macro="folderlisting">
+                
+                
+        </metal:folderlisting>
+        
+        <!-- footer, by line created date etc. -->
+        <metal:footer define-macro="footer">
+                
+        </metal:footer>
+        
+</metal:main>
+</body>
+</html>
+
+<!--
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+  <head>
+    <title tal:content="template/title">The title</title>
+  </head>
+  <body>
+    <metal:main fill-slot="main">
+    <div tal:define="view here/@@successstory_view;
+                     result python:view.list_success(context.REQUEST.get('port_type'), context.REQUEST.get('from_id'))">
+     <tal:block repeat="item result">
+       <strong>
+       <a href="#" 
+               class="tile"
+               tal:attributes="href python:item.getPath()"
+               tal:content="structure python:item.Title">
+               id</a>
+       </strong>
+        - <span tal:replace="python:item.Description"/>
+               <br/>
+               <br/>
+           </tal:block>
+    </div>
+    </metal:main>
+  </body>
+</html>
+
+-->

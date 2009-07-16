@@ -1,0 +1,16 @@
+Changelog for ATSuccessStory 
+
+    (name of developer listed in brackets)
+
+ATSuccessStory 2.0.1
+    - Added 'summary_view' functionality to the Success Story Folder. [frapell]
+
+ATSuccessStory 2.0.0
+    - Complete rebuild from scratch. [frapell]
+
+    - Use of zope3 views. [frapell]
+
+    - Removed the inheritance from ATImage. [frapell]
+
+    - Local and global Success Stories portlets created. [frapell]
+
