@@ -61,6 +61,12 @@ class Assignment(base.Assignment):
     """
     
     implements(IsuccessStoryPortlet)
+    
+    # When you introduce new attributes, you need to make sure old portlets
+    # also have these new attributes. You do that by adding them here.
+    # Otherwise, installing a new version will break the site.
+    number_of_stories = 1
+    global_portlet = False
 
     def __init__(self,
                  header='Success Stories',
@@ -130,19 +136,26 @@ class Renderer(base.Renderer):
 
     @memoize
     def get_searchpath(self):
+        folder = self.get_search_folder()
+        if IATFolder.providedBy(folder):
+            return '/'.join(folder.getPhysicalPath())
+        else:
+            return None
+        
+    @memoize
+    def get_search_folder(self):
+        if self.global_portlet:
+            return self.portal
         folder_path = self.data.searchpath
 
         if folder_path[0]=='/':
             folder_path = folder_path[1:]
 
-        folder = self.portal.restrictedTraverse(folder_path, default=None)
-
-        if IATFolder.providedBy(folder):
-            return '/'.join(folder.getPhysicalPath())
-        else:
-            return None
-
-
+        return self.portal.restrictedTraverse(folder_path, default=None)
+    
+    def get_folder_link(self):
+        return self.get_search_folder().absolute_url()
+    
 
 class AddForm(base.AddForm):
     """Portlet add form.

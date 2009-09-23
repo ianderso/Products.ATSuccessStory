@@ -3,7 +3,7 @@
 <dl class="portlet" id="portlet-success-stories" tal:condition="results">
 
     <dt class="portletHeader">
-        <a href="#" tal:attributes="href  view/get_searchpath">
+        <a href="#" tal:attributes="href  view/get_folder_link">
             <span id="portlet-success-header"
                   tal:content="view/header"/>
         </a>
@@ -15,7 +15,7 @@
                 <span tal:replace="structure python:success_story.tag(scale='atss')"/>
 <!--              style="float:left" -->
             </a>
-            <a href="#" tal:attributes="href python:result.getPath()">
+            <a href="#" tal:attributes="href python:result.getObject().absolute_url()">
                 <strong>
                     <span tal:content="python:success_story.Title()"/>
                 </strong>
