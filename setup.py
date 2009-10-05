@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '3.2'
+version = 'SVN'
 
 setup(name='Products.ATSuccessStory',
       version=version,
