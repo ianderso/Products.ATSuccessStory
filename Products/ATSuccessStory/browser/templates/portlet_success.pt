@@ -11,11 +11,11 @@
 
     <dd class="portletItem" tal:repeat="result results">
         <div tal:define="success_story python:result.getObject()">
-            <a href="#" tal:attributes="href python:result.getPath()">
+            <a href="#" tal:attributes="href success_story/absolute_url">
                 <span tal:replace="structure python:success_story.tag(scale='atss')"/>
 <!--              style="float:left" -->
             </a>
-            <a href="#" tal:attributes="href python:result.getObject().absolute_url()">
+            <a href="#" tal:attributes="href success_story/absolute_url">
                 <strong>
                     <span tal:content="python:success_story.Title()"/>
                 </strong>
