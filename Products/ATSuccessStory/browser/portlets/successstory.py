@@ -21,15 +21,12 @@ from Products.ATContentTypes.interface import IATFolder
 
 from plone.memoize.instance import memoize
 
-from zope.i18nmessageid import MessageFactory
-
 import random
 
-successStoryPortletMessageFactory = MessageFactory('Products.ATSuccessStory')
-_ = successStoryPortletMessageFactory
+from Products.ATSuccessStory import _
 
 
-class IsuccessStoryPortlet(IPortletDataProvider):
+class ISuccessStoryPortlet(IPortletDataProvider):
     """A portlet
 
     It inherits from IPortletDataProvider because for this portlet, the
@@ -38,21 +35,23 @@ class IsuccessStoryPortlet(IPortletDataProvider):
     """
 
     header = schema.TextLine(title=_(u"Header"),
-                                  description=_(u"Portlet header"),
-                                  required=True)
+                             description=_(u"Portlet header"),
+                             required=True)
 
     searchpath = schema.Choice(title=_(u"Stories Path"),
-                                  description=_(u"Search for success stories inside this path"),
-                                  required=True,
-                                  source=SearchableTextSourceBinder({'object_provides' : IATFolder.__identifier__}))
+                               description=_(u"Search for success stories inside this path"),
+                               required=True,
+                               source=SearchableTextSourceBinder({'object_provides' : IATFolder.__identifier__}))
 
     number_of_stories = schema.Int(title=_(u"Number of stories"),
-                                        description=_(u"Specify how many Success Stories you want displayed at the same time in the portlet. Most commonly you will need 1."),
-                                        required=True)
+                                   description=_(u"Specify how many Success Stories you want displayed at the same time in the portlet. Most commonly you will need 1."),
+                                   required=True)
 
     global_portlet = schema.Bool(title=_(u"Global"),
                                  description=_(u"Is this a global portlet? this will cause not only to search using the search path, but to search for stories from the whole site."),
                                  default=False)
+    
+
 class Assignment(base.Assignment):
     """Portlet assignment.
     
@@ -60,7 +59,7 @@ class Assignment(base.Assignment):
     with columns.
     """
     
-    implements(IsuccessStoryPortlet)
+    implements(ISuccessStoryPortlet)
     
     # When you introduce new attributes, you need to make sure old portlets
     # also have these new attributes. You do that by adding them here.
@@ -164,7 +163,7 @@ class AddForm(base.AddForm):
     zope.formlib which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
-    form_fields = form.Fields(IsuccessStoryPortlet)
+    form_fields = form.Fields(ISuccessStoryPortlet)
     label = _(u"Add Success Story Portlet")
     description = _(u"This portlet displays a random success story")
     
@@ -179,6 +178,6 @@ class EditForm(base.EditForm):
     This is registered with configure.zcml. The form_fields variable tells
     zope.formlib which fields to display.
     """
-    form_fields = form.Fields(IsuccessStoryPortlet)
+    form_fields = form.Fields(ISuccessStoryPortlet)
     label = _(u"Add Success Story Portlet")
     description = _(u"This portlet displays a random success story")

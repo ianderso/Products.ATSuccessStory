@@ -20,6 +20,7 @@ from Products.ATSuccessStory.content.ATSuccessStoryFolder import ATSuccessStoryF
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.ATSuccessStory.config import *
+from Products.ATSuccessStory import _
 
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
@@ -30,9 +31,7 @@ schema = Schema((
         name='Story',
         allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
         widget=RichWidget(
-            label='Story',
-            label_msgid='ATSuccessStory_label_Story',
-            i18n_domain='ATSuccessStory',
+            label=_('Story'),
         ),
         default_output_type='text/html',
         required=1,
@@ -40,9 +39,7 @@ schema = Schema((
     ImageField(
         name='Image',
         widget=ImageField._properties['widget'](
-            label='Image',
-            label_msgid='ATSuccessStory_label_Image',
-            i18n_domain='ATSuccessStory',
+            label=_('Image'),
         ),
         required=1,
         storage=AttributeStorage(),

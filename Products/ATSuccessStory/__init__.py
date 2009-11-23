@@ -59,6 +59,8 @@ DirectoryView.registerDirectory('skins', product_globals)
 ##code-section custom-init-head #fill in your manual code here
 ##/code-section custom-init-head
 
+from zope.i18nmessageid import MessageFactory
+_ = MessageFactory('ATSuccessStory')
 
 def initialize(context):
     """initialize product (called by zope)"""
