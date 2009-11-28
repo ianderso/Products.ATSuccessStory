@@ -1,6 +1,12 @@
 Changelog
 =========
 
+3.2 (YYYY-MM-DD)
+----------
+
+* Translated the product to Swedish and Norwegian (thanks to Mats Tande
+  for the Norwegian translation). [lregebro]
+
 3.1 
 ----------------
 

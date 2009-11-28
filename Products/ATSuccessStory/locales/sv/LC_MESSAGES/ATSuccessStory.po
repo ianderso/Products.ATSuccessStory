@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.ATSuccessStory\n"
-"POT-Creation-Date: 2009-11-23 17:18+0000\n"
+"POT-Creation-Date: 2009-11-28 16:30+0000\n"
 "PO-Revision-Date: 2009-11-23 16:43+0000\n"
 "Last-Translator: Lennart Regebro <lregebro@jarn.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,61 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ATSuccessStory\n"
 
-#: ./browser/portlets/successstory.py:167
+#: browser/portlets/successstory.py:167
 msgid "Add Success Story Portlet"
 msgstr "Lägg till en Success Story Portlet"
 
-#: ./browser/portlets/successstory.py:52
+#: browser/portlets/successstory.py:50
 msgid "Global"
 msgstr "Global"
 
-#: ./browser/portlets/successstory.py:39
+#: browser/portlets/successstory.py:37
 msgid "Header"
 msgstr "Rubrik"
 
-#: ./content/ATSuccessStory.py:43
+#: content/ATSuccessStory.py:42
 msgid "Image"
 msgstr "Bild"
 
-#: ./browser/portlets/successstory.py:53
+#: browser/portlets/successstory.py:51
 msgid "Is this a global portlet? this will cause not only to search using the search path, but to search for stories from the whole site."
 msgstr "Är detta en global portlet? En global portlet kommer visa Success Stories frpn hela sajten, och inte bara den angivna sökvägen."
 
-#: ./browser/portlets/successstory.py:48
+#: browser/portlets/successstory.py:46
 msgid "Number of stories"
 msgstr "Antal Success Stories"
 
-#: ./browser/portlets/successstory.py:40
+#: browser/portlets/successstory.py:38
 msgid "Portlet header"
 msgstr "Portletens rubrik"
 
-#: ./browser/portlets/successstory.py:44
+#: browser/portlets/successstory.py:42
 msgid "Search for success stories inside this path"
 msgstr "Visa Success Stories från denna folder"
 
-#: ./browser/portlets/successstory.py:49
+#: browser/portlets/successstory.py:47
 msgid "Specify how many Success Stories you want displayed at the same time in the portlet. Most commonly you will need 1."
 msgstr "Ange hur många Success Stories du vill visa samtidigt in en portlet. Vanligast är 1."
 
-#: ./browser/portlets/successstory.py:43
+#: browser/portlets/successstory.py:41
 msgid "Stories Path"
 msgstr "Sökväg till Success Stories"
 
-#: ./content/ATSuccessStory.py:35
+#: content/ATSuccessStory.py:34
 msgid "Story"
 msgstr "Success Story"
 
-#: ./browser/portlets/successstory.py:87
+msgid "Success Story"
+msgstr "Success Story"
+
+msgid "Success Story Folder"
+msgstr "Success Story Folder"
+
+#: browser/portlets/successstory.py:87
 msgid "Success Story Portlet"
 msgstr "Success Story Portlet"
 
-#: ./browser/portlets/successstory.py:168
+#: browser/portlets/successstory.py:168
 msgid "This portlet displays a random success story"
 msgstr "Denna portlet visar en slumpvis valt Success Story"
 
