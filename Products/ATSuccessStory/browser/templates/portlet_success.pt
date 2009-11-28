@@ -26,7 +26,7 @@
 
     </dd>
     <dd class="portletFooter">
-        <a href="#" tal:attributes="href  view/get_searchpath"
+        <a href="#" tal:attributes="href python:view.get_search_folder().absolute_url()"
                     tal:condition="not:view/global_portlet">
         <span id="portlet-success-more"
               i18n:translate="box_more_success">More Success Stories</span>
