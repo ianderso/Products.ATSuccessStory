@@ -18,7 +18,7 @@
         <!-- folderlisting that shows sub-objects if there are any -->
         <metal:folderlisting define-macro="folderlisting">
 
-           <div>
+           <div tal:define="template_id template/getId;">
             <a href=""
                 class="link-parent"
                 tal:define="parent_url python:here.navigationParent(here, template_id)"
