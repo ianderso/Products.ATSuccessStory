@@ -12,6 +12,3 @@ class IATSuccessStoryFolder(Interface):
 class IATSuccessStory(Interface):
     """Marker interface for .ATSuccessStory.ATSuccessStory
     """
-
-##code-section FOOT
-##/code-section FOOT

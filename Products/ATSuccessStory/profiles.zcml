@@ -5,6 +5,8 @@
 
   <include package="Products.GenericSetup" file="meta.zcml" />
 
+  <include file="updates.zcml" />
+  
   <genericsetup:registerProfile
       name="default"
       title="ATSuccessStory"

@@ -13,4 +13,9 @@
 
     <include file="profiles.zcml" />
 
+    <utility
+        component=".vocabularies.existingSSFolders"
+        name="atss.existing_folders"
+        />
+
 </configure>

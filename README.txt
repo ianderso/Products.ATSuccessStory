@@ -17,7 +17,9 @@ This product also provides a portlet, that you can add anywhere.
 
 Just go to where you want the portlet to show, click on "Manage Portlets" and then select "Success Story rotating portlet" from the drop down.
 
-Then choose the title you would like for the portlet and select the folder from it should get the success stories.
+Then choose the title you would like for the portlet and select the folder from it should get the success stories. If you want the portlet to show all stories from any Success Story folder existing in the site, just select "Global" from this drop down.
+
+Finally, choose how many stories you would like to be shown on each page refresh.
 
 Click save, and you're set :-D
 
@@ -26,4 +28,4 @@ Example:
 
 We add a "Success Story Folder" called "Success Stories" and inside we add a bunch of success stories.
 
-We want the portlet to be shown at root site. So we go there, then click on "Manage Portlets", we select "Success Story rotating portlet" from the drop down. We write "Case Studies" in the header, and under "Stories Path" we write part of the folder name... like "success", then click on search, and a drop down will appear, just select "Success Stories" from it, and click on "apply". Then click save, and then "save" again from the manage portlet screen.
+We want the portlet to be shown at root site. So we go there, then click on "Manage Portlets", we select "Success Story rotating portlet" from the drop down. We write "Case Studies" in the header, and under "Stories Path" select "Success Story Folder" from the drop down (it will also show the full path to it, in case more than one folder is called the same). Choose to show 1 story at a time. Then click save, and then "save" again from the manage portlet screen.

@@ -15,11 +15,13 @@
                 <span tal:replace="structure python:success_story.tag(scale='atss')"/>
 <!--              style="float:left" -->
             </a>
-            <a href="#" tal:attributes="href success_story/absolute_url">
-                <strong>
-                    <span tal:content="python:success_story.Title()"/>
-                </strong>
-            </a>
+			<p>
+	            <a href="#" tal:attributes="href success_story/absolute_url">
+	                <strong>
+	                    <span tal:content="python:success_story.Title()"/>
+	                </strong>
+	            </a>
+			</p>
             <p id="portlet-success-description"
                tal:content="structure python:success_story.Description()"/>
         </div>

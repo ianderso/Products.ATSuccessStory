@@ -5,7 +5,11 @@
 
 <body>
 
-    <div metal:fill-slot="main">
+    <div metal:fill-slot="main"
+         tal:define="object_title context/@@plone_context_state/object_title;
+                        template_id template/getId;
+                        normalizeString nocall:context/@@plone/normalizeString;
+                        isAnon context/@@plone_portal_state/anonymous;">
     <metal:main-macro define-macro="main">
 
         <!--div metal:use-macro="here/document_actions/macros/document_actions">

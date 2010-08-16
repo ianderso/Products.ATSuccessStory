@@ -17,7 +17,8 @@ from Products.CMFPlone import utils
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-from Products.ATContentTypes.interface import IATFolder
+
+from OFS.interfaces import IFolder
 
 from plone.memoize.instance import memoize
 
@@ -25,6 +26,7 @@ import random
 
 from Products.ATSuccessStory import _
 
+from Products.ATSuccessStory.content.interfaces import  IATSuccessStoryFolder
 
 class ISuccessStoryPortlet(IPortletDataProvider):
     """A portlet
@@ -41,16 +43,12 @@ class ISuccessStoryPortlet(IPortletDataProvider):
     searchpath = schema.Choice(title=_(u"Stories Path"),
                                description=_(u"Search for success stories inside this path"),
                                required=True,
-                               source=SearchableTextSourceBinder({'object_provides' : IATFolder.__identifier__}))
+                               vocabulary=u'atss.existing_folders')
 
     number_of_stories = schema.Int(title=_(u"Number of stories"),
                                    description=_(u"Specify how many Success Stories you want displayed at the same time in the portlet. Most commonly you will need 1."),
                                    required=True)
 
-    global_portlet = schema.Bool(title=_(u"Global"),
-                                 description=_(u"Is this a global portlet? this will cause not only to search using the search path, but to search for stories from the whole site."),
-                                 default=False)
-    
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -65,18 +63,15 @@ class Assignment(base.Assignment):
     # also have these new attributes. You do that by adding them here.
     # Otherwise, installing a new version will break the site.
     number_of_stories = 1
-    global_portlet = False
 
     def __init__(self,
                  header='Success Stories',
                  searchpath='/',
-                 number_of_stories=1,
-                 global_portlet=False):
+                 number_of_stories=1):
 
         self.header = header
         self.searchpath = searchpath
         self.number_of_stories = number_of_stories
-        self.global_portlet = global_portlet
 
 
     @property
@@ -107,11 +102,8 @@ class Renderer(base.Renderer):
         folder_path = self.get_searchpath()
 
         if folder_path:
-            if not self.global_portlet:
-                results = self.context.portal_catalog(path = folder_path, portal_type = 'ATSuccessStory')
-            else:
-                results = self.context.portal_catalog(portal_type = 'ATSuccessStory')
-
+            results = self.context.portal_catalog(path = folder_path, portal_type = 'ATSuccessStory')
+                
             if results:
                 shuffled = list(results)
                 random.shuffle(shuffled)
@@ -130,27 +122,16 @@ class Renderer(base.Renderer):
         return int(self.data.number_of_stories)
 
     @property
-    def global_portlet(self):
-        return self.data.global_portlet
+    def global_portlet(self):        
+        return self.get_searchpath() == '/'.join(self.portal.getPhysicalPath())
 
     @memoize
     def get_searchpath(self):
-        folder = self.get_search_folder()
-        if IATFolder.providedBy(folder):
-            return '/'.join(folder.getPhysicalPath())
-        else:
-            return None
+        return self.data.searchpath
         
     @memoize
     def get_search_folder(self):
-        if self.global_portlet:
-            return self.portal
-        folder_path = self.data.searchpath
-
-        if folder_path[0]=='/':
-            folder_path = folder_path[1:]
-
-        return self.portal.restrictedTraverse(folder_path, default=None)
+        return self.portal.restrictedTraverse(self.data.searchpath, default=None)
     
     def get_folder_link(self):
         return self.get_search_folder().absolute_url()
@@ -181,3 +162,4 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(ISuccessStoryPortlet)
     label = _(u"Add Success Story Portlet")
     description = _(u"This portlet displays a random success story")
+

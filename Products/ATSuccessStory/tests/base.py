@@ -9,6 +9,9 @@ from Testing import ZopeTestCase as ztc
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import onsetup
 
+from zope.schema.vocabulary import getVocabularyRegistry
+from Products.ATSuccessStory.vocabularies import existingSSFolders
+
 # These are traditional products (in the Products namespace). They'd
 # normally be loaded automatically, but in tests we have to load them
 # explicitly. This should happen at module level to make sure they are
@@ -27,9 +30,22 @@ def setup_atsuccessstory():
     # Load the ZCML configuration for the Products.ATSuccessStory package.
     # This includes the other products below as well.
 
-    fiveconfigure.debug_mode = True
+    #fiveconfigure.debug_mode = True
+    #import Products.ATSuccessStory
+    #zcml.load_config('configure.zcml', Products.ATSuccessStory)
+    #fiveconfigure.debug_mode = False
+    #fiveconfigure.debug_mode = True
+    #ztapi.provideUtility(IVocabulary, existingSSFolders, "atss.existing_folders")
 
+    try:
+        # Plone 3
+        vr = getVocabularyRegistry()
+        vr.register("atss.existing_folders", existingSSFolders)
+    except:
+        # Plone 4
+        pass
 
+    #self.portal.portal_quickinstaller.installProduct('ATSuccessStory')
 
 
 # The order here is important: We first call the (deferred) function

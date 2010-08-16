@@ -1,6 +1,18 @@
 Changelog
 =========
 
+SVN
+---
+
+* Refactored the Success Story folder selection (Drop Down) when
+  adding / editing a Success Story rotating portlet [frapell]
+
+* Added and fixed test cases to get a 100% product coverage [frapell]
+
+* Added an upgrade step 3.2.0 -> 4.0.0 [frapell]
+
+* Plone 4 now supported [tzicatl]
+
 3.2 (YYYY-MM-DD)
 ----------
 
