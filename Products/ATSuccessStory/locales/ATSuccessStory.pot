@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-11-28 16:30+0000\n"
+"POT-Creation-Date: 2010-08-16 21:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,15 +15,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ATSuccessStory\n"
 
-#: browser/portlets/successstory.py:167
+#: browser/portlets/successstory.py:148
 msgid "Add Success Story Portlet"
 msgstr ""
 
-#: browser/portlets/successstory.py:50
+#: profiles/default/portlets.xml
+msgid "Displays a random success story"
+msgstr ""
+
+#: vocabularies.py:18
 msgid "Global"
 msgstr ""
 
-#: browser/portlets/successstory.py:37
+#: browser/portlets/successstory.py:39
 msgid "Header"
 msgstr ""
 
@@ -31,27 +35,23 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: browser/portlets/successstory.py:51
-msgid "Is this a global portlet? this will cause not only to search using the search path, but to search for stories from the whole site."
-msgstr ""
-
-#: browser/portlets/successstory.py:46
+#: browser/portlets/successstory.py:48
 msgid "Number of stories"
 msgstr ""
 
-#: browser/portlets/successstory.py:38
+#: browser/portlets/successstory.py:40
 msgid "Portlet header"
 msgstr ""
 
-#: browser/portlets/successstory.py:42
+#: browser/portlets/successstory.py:44
 msgid "Search for success stories inside this path"
 msgstr ""
 
-#: browser/portlets/successstory.py:47
+#: browser/portlets/successstory.py:49
 msgid "Specify how many Success Stories you want displayed at the same time in the portlet. Most commonly you will need 1."
 msgstr ""
 
-#: browser/portlets/successstory.py:41
+#: browser/portlets/successstory.py:43
 msgid "Stories Path"
 msgstr ""
 
@@ -65,11 +65,15 @@ msgstr ""
 msgid "Success Story Folder"
 msgstr ""
 
-#: browser/portlets/successstory.py:87
+#: browser/portlets/successstory.py:82
 msgid "Success Story Portlet"
 msgstr ""
 
-#: browser/portlets/successstory.py:168
+#: profiles/default/portlets.xml
+msgid "Success Story rotating portlet"
+msgstr ""
+
+#: browser/portlets/successstory.py:149
 msgid "This portlet displays a random success story"
 msgstr ""
 

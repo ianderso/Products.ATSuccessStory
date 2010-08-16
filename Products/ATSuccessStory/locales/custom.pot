@@ -20,3 +20,7 @@ msgstr ""
 
 msgid "Success Story"
 msgstr ""
+
+#: vocabularies.py:18
+msgid "Global"
+msgstr ""

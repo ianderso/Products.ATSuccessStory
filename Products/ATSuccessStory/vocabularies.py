@@ -3,6 +3,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 from Products.CMFCore.utils import getToolByName
 from zope.interface import implements, implementer, alsoProvides
 from zope.schema.interfaces import IVocabulary, IVocabularyFactory
+from Products.ATSuccessStory import _
 
 @implementer(IVocabulary)
 def existingSSFolders( context ):
@@ -14,7 +15,7 @@ def existingSSFolders( context ):
     
     results = pc.searchResults(portal_type='ATSuccessStoryFolder')
     
-    terms = [SimpleVocabulary.createTerm(portal_path, portal_path, u'Global')]
+    terms = [SimpleVocabulary.createTerm(portal_path, portal_path, _(u'Global'))]
 
     for value in results:
         path = value.getPath()
