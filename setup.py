@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = 'SVN'
+version = '4.0.0'
 
 setup(name='Products.ATSuccessStory',
       version=version,
@@ -20,6 +20,9 @@ setup(name='Products.ATSuccessStory',
       url='http://plone.org/products/atsuccessstory',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
+      package_data= {
+          '':['*.pt', '*.xml', '*.gif']
+          },
       namespace_packages=['Products'],
       include_package_data=True,
       zip_safe=False,

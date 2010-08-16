@@ -4,6 +4,10 @@ Changelog
 SVN
 ---
 
+
+4.0.0
+-----
+
 * Refactored the Success Story folder selection (Drop Down) when
   adding / editing a Success Story rotating portlet [frapell]
 
