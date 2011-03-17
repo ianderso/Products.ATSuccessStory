@@ -48,6 +48,13 @@ class ISuccessStoryPortlet(IPortletDataProvider):
     number_of_stories = schema.Int(title=_(u"Number of stories"),
                                    description=_(u"Specify how many Success Stories you want displayed at the same time in the portlet. Most commonly you will need 1."),
                                    required=True)
+    keywords = schema.Tuple(title=_(u"Categories"),
+                           description=_(u"Items containing what categories "
+                                         "to show. If none is selected, this "
+                                         "field will be ignored."),
+                           required=False,
+                           value_type=schema.Choice(
+                             vocabulary="plone.app.vocabularies.Keywords"))
 
 
 class Assignment(base.Assignment):
@@ -67,11 +74,13 @@ class Assignment(base.Assignment):
     def __init__(self,
                  header='Success Stories',
                  searchpath='/',
-                 number_of_stories=1):
+                 number_of_stories=1,
+                 keywords=None):
 
         self.header = header
         self.searchpath = searchpath
         self.number_of_stories = number_of_stories
+        self.keywords = keywords
 
 
     @property
@@ -102,7 +111,13 @@ class Renderer(base.Renderer):
         folder_path = self.get_searchpath()
 
         if folder_path:
-            results = self.context.portal_catalog(path = folder_path, portal_type = 'ATSuccessStory')
+            query = {
+                'path': folder_path,
+                'portal_type': 'ATSuccessStory'
+            }
+            if self.keywords:
+                query['Subject'] = self.keywords
+            results = self.context.portal_catalog(query)
                 
             if results:
                 shuffled = list(results)
@@ -116,6 +131,10 @@ class Renderer(base.Renderer):
     @property
     def header(self):
         return self.data.header
+
+    @property
+    def keywords(self):
+        return self.data.keywords
 
     @property
     def number_of_stories(self):
