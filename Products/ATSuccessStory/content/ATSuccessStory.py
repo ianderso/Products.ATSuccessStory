@@ -12,6 +12,7 @@
 __author__ = """Franco Pellegrini <frapell@menttes.com>"""
 __docformat__ = 'plaintext'
 
+from BTrees.OOBTree import OOBTree
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 from zope.interface import implements
@@ -70,6 +71,15 @@ class ATSuccessStory(BaseContent, ATSuccessStoryFolder, BrowserDefaultMixin):
     _at_rename_after_creation = True
 
     schema = ATSuccessStory_schema
+
+    # XXX: For some reason ATSuccessStory is extending
+    # ATSuccessStoryFolder and copying its schema. ATSuccessStory was
+    # never meant to be a folderish type and this is causing issue #3
+    # (http://plone.org/products/atsuccessstory/issues/3) in Plone 4.
+    # The issue comes from the fact that folderish objects are expected
+    # to have a _tree attribute which doesn't get set for ATSuccessStory
+    # objects, so let's set it.
+    _tree = OOBTree()
 
     ##code-section class-header #fill in your manual code here
     #security.declareProtected(View, 'tag')
