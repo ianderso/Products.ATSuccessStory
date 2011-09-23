@@ -4,6 +4,8 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="ATSuccessStory">
 
+    <include package="Products.CMFCore" />
+
      <!-- resources search portlet -->
      <plone:portlet
          name="atss.rotating.portlet"
