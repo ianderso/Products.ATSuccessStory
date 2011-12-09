@@ -70,6 +70,7 @@ class Assignment(base.Assignment):
     # also have these new attributes. You do that by adding them here.
     # Otherwise, installing a new version will break the site.
     number_of_stories = 1
+    keywords = None
 
     def __init__(self,
                  header='Success Stories',
