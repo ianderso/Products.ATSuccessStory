@@ -6,15 +6,20 @@ Changelog
 
 * set profile version [tkimnguyen]
 
+* updated README.txt to mention the portlet feature that filters stories by
+  categories [tkimnguyen]
+
 
 4.1 (2012-04-12)
 ----------------
 
 * make sure keywords is in the assignment [martior] 
 
-* Make sure we load CMFCore (to avoid error on permission), fixes http://plone.org/products/atsuccessstory/issues/5 [aclark] 
+* Make sure we load CMFCore (to avoid error on permission), fixes
+  http://plone.org/products/atsuccessstory/issues/5 [aclark]
 
-* Make sure ATSuccessStory objects have a _tree attribute. This fixes http://plone.org/products/atsuccessstory/issues/3 [esartor]
+* Make sure ATSuccessStory objects have a _tree attribute. This fixes
+  http://plone.org/products/atsuccessstory/issues/3 [esartor]
 
 * Added categories field to portlet so it can filter by category [esartor]
 

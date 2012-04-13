@@ -21,6 +21,8 @@ Then choose the title you would like for the portlet and select the folder from 
 
 Finally, choose how many stories you would like to be shown on each page refresh.
 
+Optionally, you can have the portlet display only stories that have specific categories.
+
 Click save, and you're set :-D
 
 
