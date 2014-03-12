@@ -3,7 +3,10 @@ from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from zope.component import getMultiAdapter
 from zope.component import getSiteManager
-from zope.app.component.hooks import getSite
+try:
+    from zope.app.component.hooks import getSite
+except:
+    from zope.component.hooks import getSite
 from Products.ATSuccessStory.browser.portlets.successstory import ISuccessStoryPortlet
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignmentMapping
